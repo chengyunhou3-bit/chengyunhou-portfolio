@@ -8,22 +8,50 @@
   "profileTitle": "Engineering foundations,<br>multidisciplinary practice.",
   "profileBio": "I am Cheng-Yun Hou, a Mechanical Engineering student at The Ohio State University, based between the United States and Taiwan. My work focuses on robotics, industrial AI, computer vision, and physical prototyping, with experience integrating robotic systems and developing AI-powered inspection solutions.",
   "facts": [
-    { "label": "Based in", "value": "United States & Taiwan" },
-    { "label": "Education", "value": "B.S. in Mechanical Engineering, expected May 2027" },
-    { "label": "University", "value": "The Ohio State University" },
-    { "label": "Focus", "value": "Robotics, Engineering, AI & Digital Products" }
+    {
+      "label": "Based in",
+      "value": "United States & Taiwan"
+    },
+    {
+      "label": "Education",
+      "value": "B.S. in Mechanical Engineering"
+    },
+    {
+      "label": "University",
+      "value": "The Ohio State University"
+    },
+    {
+      "label": "Focus",
+      "value": "Robotics, Engineering, AI & Digital Products"
+    }
   ],
   "skills": [
-    "Robotics — FANUC, ABB, ROS 2, Arduino",
+    "Robotics — ROS 2, Arduino, FANUC Arm, ABB Arm, Dex-hand",
     "Programming — Python, C++, MATLAB",
-    "Computer Vision — YOLO, AI Inspection",
-    "CAD & Simulation — SolidWorks, Visual Components, Omniverse"
+    "Computer Vision — YOLO (AI Inspection)",
+    "CAD & Simulation — SolidWorks, Visual Components, Isaac Sim"
   ],
   "experiences": [
-    { "period": "2025 — Present", "role": "Senior Mechanical Engineer", "organization": "Terrestrial Robotics, Columbus" },
-    { "period": "2025 — 2026", "role": "Robotics & AI Intern", "organization": "PrefactorTech, New Taipei" },
-    { "period": "2023 — 2024", "role": "Product & Design Assistant Intern", "organization": "Fiva International Corp, New Taipei" },
-    { "period": "2022 — 2027", "role": "B.S. Mechanical Engineering", "organization": "The Ohio State University, Columbus" }
+    {
+      "period": "2025 — Present",
+      "role": "Senior Mechanical Engineer",
+      "organization": "Terrestrial Robotics, Columbus"
+    },
+    {
+      "period": "2025 — 2026",
+      "role": "Robotics & AI Intern",
+      "organization": "PrefactorTech, New Taipei"
+    },
+    {
+      "period": "2023 — 2024",
+      "role": "Product & Design Assistant Intern",
+      "organization": "Fiva International Corp, New Taipei"
+    },
+    {
+      "period": "2022 — 2027",
+      "role": "B.S. Mechanical Engineering",
+      "organization": "The Ohio State University, Columbus"
+    }
   ],
   "contactHeading": "Let's talk about ideas,<br>work, or anything in between.",
   "email": "chengyunhou3@gmail.com",
