@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Personal portfolio and selected work">
+  <title>Portfolio — Cheng-Yun Hou</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Noto+Sans+TC:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <header class="site-header">
+    <a class="logo" id="site-name" href="#top" aria-label="Back to home">Cheng-Yun Hou</a>
+    <nav aria-label="Main navigation">
+      <a href="#about">About</a>
+      <a href="#work">Work</a>
+      <a href="#experience">Experience</a>
+      <a id="nav-email" href="mailto:chengyunhou3@gmail.com">Email ↗</a>
+    </nav>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="hero-intro">
+        <p class="hero-role" id="hero-headline">Mechanical Engineering Student<br>Robotics &amp; AI Engineer</p>
+        <p class="hero-status"><span class="status-dot"></span> <span id="availability">Available for selected opportunities</span></p>
+      </div>
+      <div class="hero-main">
+        <h1 id="hero-name">Cheng-Yun<br><em>Hou</em></h1>
+        <figure class="portrait">
+          <div class="portrait-frame">
+            <img id="portrait-image" src="images/cheng-yun-hou-portrait-original.png" alt="Portrait of Cheng-Yun Hou">
+          </div>
+          <figcaption id="portrait-caption">CHENG-YUN HOU — PORTRAIT</figcaption>
+        </figure>
+      </div>
+      <div class="hero-note">
+        <span>(Portfolio, 2026)</span>
+        <p id="hero-intro">I am a mechanical engineering student with a strong foundation in statics, dynamics, MATLAB, SolidWorks, and structured problem-solving. Internships across diverse industries have strengthened my engineering discipline and given me hands-on experience in engineering, AI, and robotics beyond the classroom.</p>
+      </div>
+    </section>
+
+    <section class="about section" id="about">
+      <div class="section-label">01 — PROFILE</div>
+      <div class="about-content">
+        <h2 id="profile-title">Engineering foundations,<br>multidisciplinary practice.</h2>
+        <div>
+          <p id="profile-bio">I am Cheng-Yun Hou, a Mechanical Engineering student at The Ohio State University, based between the United States and Taiwan. My work focuses on robotics, industrial AI, computer vision, and physical prototyping, with experience integrating robotic systems and developing AI-powered inspection solutions.</p>
+          <dl class="profile-facts" id="profile-facts">
+            <div><dt>Based in</dt><dd>United States &amp; Taiwan</dd></div>
+            <div><dt>Education</dt><dd>B.S. in Mechanical Engineering, expected May 2027</dd></div>
+            <div><dt>University</dt><dd>The Ohio State University</dd></div>
+            <div><dt>Focus</dt><dd>Robotics, Engineering, AI &amp; Digital Products</dd></div>
+          </dl>
+          <ul class="skill-list" id="skill-list">
+            <li><span>01</span> Robotics — FANUC, ABB, ROS 2, Arduino</li>
+            <li><span>02</span> Programming — Python, C++, MATLAB</li>
+            <li><span>03</span> Computer Vision — YOLO, AI Inspection</li>
+            <li><span>04</span> CAD &amp; Simulation — SolidWorks, Visual Components, Omniverse</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="project-index section" aria-labelledby="project-index-title">
+      <div>
+        <p class="section-label">PROJECT INDEX</p>
+        <h2 id="project-index-title">A selection of projects across healthcare, robotics, and digital tools.</h2>
+      </div>
+      <ol id="project-index-list">
+        <li><a href="project.html?id=aiqc-vghtpe"><span>01</span><strong>AIQC × Taipei Veterans General Hospital</strong><em>Healthcare AI</em><b>↗</b></a></li>
+        <li><a href="project.html?id=fanuc-system-integration"><span>02</span><strong>FANUC Robot System Integration</strong><em>Industrial Robotics</em><b>↗</b></a></li>
+        <li><a href="project.html?id=lunabotics-rover"><span>03</span><strong>Autonomous Lunabotics Rover</strong><em>Mechanical Design</em><b>↗</b></a></li>
+        <li><a href="project.html?id=arduino-mearm"><span>04</span><strong>Arduino MeArm Project</strong><em>Physical Computing</em><b>↗</b></a></li>
+        <li><a href="project.html?id=relationship-map-app"><span>05</span><strong>Relationship Mapping App</strong><em>App Development</em><b>↗</b></a></li>
+      </ol>
+    </section>
+
+    <section class="work section" id="work">
+      <div class="section-heading">
+        <div class="section-label">02 — SELECTED WORK</div>
+        <h2>Projects &amp;<br>Case Studies</h2>
+      </div>
+      <div class="filters" id="filters" aria-label="Project categories"></div>
+      <div class="project-grid" id="project-grid" aria-live="polite">
+        <p class="loading">Loading projects…</p>
+      </div>
+    </section>
+
+    <section class="experience section" id="experience">
+      <div class="section-label">03 — EXPERIENCE</div>
+      <div class="experience-list" id="experience-list">
+        <div class="experience-row">
+          <span>2025 — Present</span>
+          <h3>Senior Mechanical Engineer</h3>
+          <p>Terrestrial Robotics, Columbus</p>
+        </div>
+        <div class="experience-row">
+          <span>2025 — 2026</span>
+          <h3>Robotics &amp; AI Intern</h3>
+          <p>PrefactorTech, New Taipei</p>
+        </div>
+        <div class="experience-row">
+          <span>2023 — 2024</span>
+          <h3>Product &amp; Design Assistant Intern</h3>
+          <p>Fiva International Corp, New Taipei</p>
+        </div>
+        <div class="experience-row">
+          <span>2022 — 2027</span>
+          <h3>B.S. Mechanical Engineering</h3>
+          <p>The Ohio State University, Columbus</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="personal-contact section" id="contact">
+      <p class="section-label">04 — GET IN TOUCH</p>
+      <h2 id="contact-heading">Let's talk about ideas,<br>work, or anything in between.</h2>
+      <div class="contact-links" id="contact-links">
+        <a href="mailto:chengyunhou3@gmail.com">Email ↗</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <span>© <span id="year"></span> <span id="footer-name">CHENG-YUN HOU</span></span>
+    <span id="footer-location">UNITED STATES ↔ TAIWAN</span>
+  </footer>
+</body>
+</html>

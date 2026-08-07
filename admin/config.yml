@@ -1,0 +1,83 @@
+# yaml-language-server: $schema=https://unpkg.com/@sveltia/cms/schema/sveltia-cms.json
+
+backend:
+  name: github
+  repo: chengyunhou3-bit/chengyunhou-portfolio
+  branch: main
+
+media_folder: images/uploads
+public_folder: images/uploads
+
+collections:
+  - name: site_content
+    label: Site Content
+    files:
+      - name: profile
+        label: Profile, Experience & Contact
+        file: data/site.json
+        format: json
+        fields:
+          - { label: Name, name: name, widget: string }
+          - { label: Headline, name: headline, widget: string, hint: "Use <br> for a line break." }
+          - { label: Availability, name: availability, widget: string }
+          - { label: Portrait, name: portrait, widget: image }
+          - { label: Portrait Caption, name: portraitCaption, widget: string }
+          - { label: Short Introduction, name: intro, widget: text }
+          - { label: Profile Heading, name: profileTitle, widget: string, hint: "Use <br> for a line break." }
+          - { label: Profile Biography, name: profileBio, widget: text }
+          - label: Basic Information
+            name: facts
+            widget: list
+            fields:
+              - { label: Label, name: label, widget: string }
+              - { label: Value, name: value, widget: string }
+          - { label: Skills, name: skills, widget: list, field: { label: Skill, name: skill, widget: string } }
+          - label: Experience & Education
+            name: experiences
+            widget: list
+            summary: "{{fields.period}} — {{fields.role}}"
+            fields:
+              - { label: Period, name: period, widget: string }
+              - { label: Role or Degree, name: role, widget: string }
+              - { label: Organization, name: organization, widget: string }
+          - { label: Contact Heading, name: contactHeading, widget: string, hint: "Use <br> for a line break." }
+          - { label: Email, name: email, widget: string }
+          - { label: LinkedIn URL, name: linkedin, widget: string, required: false }
+          - { label: GitHub URL, name: github, widget: string, required: false }
+          - { label: Résumé, name: resume, widget: file, required: false, media_folder: reports, public_folder: reports }
+          - { label: Footer Location, name: footerLocation, widget: string }
+
+  - name: portfolio_projects
+    label: Portfolio Projects
+    files:
+      - name: projects
+        label: Projects
+        file: data/projects.json
+        format: json
+        fields:
+          - label: Projects
+            name: projects
+            widget: list
+            summary: "{{fields.title}} — {{fields.year}}"
+            fields:
+              - { label: ID / URL Slug, name: id, widget: string, hint: "Lowercase letters and hyphens only. Do not change after publishing." }
+              - { label: Title, name: title, widget: string }
+              - { label: Category, name: category, widget: string }
+              - { label: Year, name: year, widget: string }
+              - { label: Summary, name: summary, widget: text }
+              - { label: Cover Image, name: cover, widget: image }
+              - { label: Role, name: role, widget: string }
+              - { label: Tools, name: tools, widget: list, field: { label: Tool, name: tool, widget: string } }
+              - { label: PDF Report, name: report, widget: file, required: false, media_folder: reports, public_folder: reports }
+              - { label: External Project or Video URL, name: externalUrl, widget: string, required: false }
+              - label: Case Study Sections
+                name: sections
+                widget: list
+                summary: "{{fields.title}}"
+                fields:
+                  - { label: Section Title, name: title, widget: string }
+                  - { label: Content, name: content, widget: text }
+                  - { label: Image, name: image, widget: image, required: false }
+                  - { label: MP4 Video, name: video, widget: file, required: false, media_folder: media, public_folder: media }
+                  - { label: Video Poster, name: poster, widget: image, required: false }
+                  - { label: Video Caption, name: videoCaption, widget: string, required: false }

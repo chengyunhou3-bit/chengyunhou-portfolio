@@ -1,0 +1,164 @@
+{
+"projects": [
+  {
+    "id": "aiqc-vghtpe",
+    "title": "AIQC × Taipei Veterans General Hospital",
+    "category": "Healthcare AI",
+    "year": "2026",
+    "summary": "An industrial AI vision system for an automated syringe refill machine, developed with Python and YOLO to inspect bubbles, estimate liquid volume, and identify defective syringes.",
+    "cover": "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=1600&q=85",
+    "role": "AI Vision Development & Dataset Engineering",
+    "tools": ["Python", "YOLO", "AIQC"],
+    "report": "",
+    "externalUrl": "",
+    "sections": [
+      {
+        "title": "Project Overview",
+        "content": "Developed during a Robotics & AI internship at PrefactorTech, this project applied industrial computer vision to an automated syringe refill machine for Taipei Veterans General Hospital. The goal was to support reliable inspection within an automated clinical production workflow.",
+        "image": "https://images.unsplash.com/photo-1538108149393-fbbd81895907?auto=format&fit=crop&w=1500&q=85"
+      },
+      {
+        "title": "Inspection Challenge",
+        "content": "The system needed to examine filled syringes for visible bubbles, estimate liquid volume, and identify defective products. These tasks required an inspection workflow that could distinguish subtle visual differences while operating under real-world lighting and background conditions."
+      },
+      {
+        "title": "Dataset & Model Development",
+        "content": "Collected and annotated industrial image datasets, evaluated lighting and background configurations, and refined labeling strategies. Iterative YOLO model training and dataset optimization were used to improve robustness and inspection accuracy.",
+        "image": "https://images.unsplash.com/photo-1559757175-0eb30cd8c063?auto=format&fit=crop&w=1500&q=85"
+      },
+      {
+        "title": "My Contribution",
+        "content": "Developed the Python- and YOLO-based AI vision solution and its inspection logic for bubble detection, liquid-volume estimation, and defective-syringe identification. Final system images, evaluation results, and a demonstration will be added when project materials are available."
+      }
+    ]
+  },
+  {
+    "id": "fanuc-system-integration",
+    "title": "FANUC Robot System Integration",
+    "category": "Industrial Robotics",
+    "year": "2026",
+    "summary": "A system integration workflow connecting a FANUC industrial robot, Tesollo dexterous hand, AI cameras, and ROS 2-based control software for autonomous object manipulation.",
+    "cover": "https://images.unsplash.com/photo-1561144257-e32e8efc6c4f?auto=format&fit=crop&w=1600&q=85",
+    "role": "Robotics Integration & Software Development",
+    "tools": ["FANUC", "Python", "ROS 2", "Modbus TCP"],
+    "report": "",
+    "externalUrl": "",
+    "sections": [
+      {
+        "title": "System Overview",
+        "content": "The project integrated industrial robotics hardware and perception components into a coordinated manipulation system. Core components included a FANUC robot, Tesollo dexterous hand, AI cameras, and ROS 2-based control software.",
+        "image": "https://images.unsplash.com/photo-1535378917042-10a22c95931a?auto=format&fit=crop&w=1500&q=85"
+      },
+      {
+        "title": "Communication Architecture",
+        "content": "Built a Python client-server communication system using TCP sockets and Modbus TCP. The architecture enabled reliable communication and command synchronization between PC applications and the FANUC industrial robot."
+      },
+      {
+        "title": "Simulation & Validation",
+        "content": "Created robotic simulations and digital-twin demonstrations using Visual Components and NVIDIA Omniverse. These environments supported system validation, production planning, and technical presentations before physical deployment.",
+        "image": "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?auto=format&fit=crop&w=1500&q=85"
+      },
+      {
+        "title": "Project Contribution",
+        "content": "Contributed to the integration workflow, robot communication layer, and simulation environment for autonomous object manipulation. System diagrams, implementation images, and demo footage will be added when available."
+      }
+    ]
+  },
+  {
+    "id": "lunabotics-rover",
+    "title": "Autonomous Lunabotics Rover",
+    "category": "Mechanical Design",
+    "year": "2025 — Present",
+    "summary": "Mechanical design and prototype development for an autonomous Lunabotics rover, including CAD, subsystem fabrication, testing, and performance refinement.",
+    "cover": "https://images.unsplash.com/photo-1446776811953-b23d57bd21aa?auto=format&fit=crop&w=1600&q=85",
+    "role": "Senior Mechanical Engineer",
+    "tools": ["SolidWorks", "CAD", "Prototyping", "Mechanical Testing"],
+    "report": "",
+    "externalUrl": "",
+    "sections": [
+      {
+        "title": "Mission & Team",
+        "content": "As Senior Mechanical Engineer with Terrestrial Robotics, contributed to the design and development of an autonomous rover for Lunabotics. The mechanical system was developed to operate reliably while meeting the constraints of the competition environment.",
+        "image": "https://images.unsplash.com/photo-1614728894747-a83421e2b9c9?auto=format&fit=crop&w=1500&q=85"
+      },
+      {
+        "title": "Mechanical Development",
+        "content": "Created CAD models and developed mechanical subsystems, translating design requirements into components that could be fabricated, assembled, and evaluated as part of the complete rover."
+      },
+      {
+        "title": "Prototyping & Testing",
+        "content": "Supported prototype builds and rigorous mechanical testing. Empirical observations from testing informed iterative refinements to the rover's mechanical function and overall performance.",
+        "image": "https://images.unsplash.com/photo-1581822261290-991b38693d1b?auto=format&fit=crop&w=1500&q=85"
+      },
+      {
+        "title": "Work in Progress",
+        "content": "This is an ongoing project. Final subsystem details, engineering drawings, testing data, and competition outcomes will be added as the project develops."
+      }
+    ]
+  },
+  {
+    "id": "arduino-mearm",
+    "title": "Arduino MeArm Project",
+    "category": "Physical Computing",
+    "year": "2025",
+    "summary": "A four-degree-of-freedom robotic arm using Arduino Uno R3, C++, four servo motors, and real-time joystick control for stable object manipulation and grasping.",
+    "cover": "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?auto=format&fit=crop&w=1600&q=85",
+    "role": "Mechanical Design, Electronics & Programming",
+    "tools": ["Arduino Uno R3", "C++", "Servo Motors"],
+    "report": "",
+    "externalUrl": "",
+    "sections": [
+      {
+        "title": "Project Goal",
+        "content": "Designed the MeArm as a low-cost assistive robotic system for retrieving objects in daily-living scenarios. The project connected mechanical assembly, embedded programming, and human-operated control in a working prototype.",
+        "image": "https://images.unsplash.com/photo-1561144257-e32e8efc6c4f?auto=format&fit=crop&w=1500&q=85"
+      },
+      {
+        "title": "Mechanical & Electronic System",
+        "content": "Built a four-degree-of-freedom arm driven by four servo motors and controlled through an Arduino Uno R3. Each joint was configured to provide coordinated base, shoulder, elbow, and gripper movement."
+      },
+      {
+        "title": "Control Logic",
+        "content": "Developed real-time joystick control and motion logic in C++. Joint-angle constraints were implemented to keep motion within stable operating ranges and reduce unsafe or mechanically invalid commands.",
+        "image": "https://images.unsplash.com/photo-1535378917042-10a22c95931a?auto=format&fit=crop&w=1500&q=85"
+      },
+      {
+        "title": "Final Demonstration",
+        "content": "The completed prototype enabled controlled object manipulation and grasping. Build photographs, circuit diagrams, code details, and a demonstration video will be added when the project media is available."
+      }
+    ]
+  },
+  {
+    "id": "relationship-map-app",
+    "title": "Relationship Mapping App",
+    "category": "App Development",
+    "year": "[YEAR]",
+    "summary": "[PLACEHOLDER] An application concept for recording, organizing, and visually understanding relationships between people in a personal network.",
+    "cover": "https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=1600&q=85",
+    "role": "[Your Role]",
+    "tools": ["[Framework]", "[Database]", "[Design Tool]"],
+    "report": "",
+    "externalUrl": "",
+    "sections": [
+      {
+        "title": "Why Map Relationships?",
+        "content": "[PLACEHOLDER] Explain what inspired the application, who it is for, and which problems are difficult to solve with ordinary contact lists or note-taking tools.",
+        "image": "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=1500&q=85"
+      },
+      {
+        "title": "Information Architecture",
+        "content": "[PLACEHOLDER] Describe the types of people, connections, notes, groups, or interaction history stored by the app, including how privacy was considered."
+      },
+      {
+        "title": "Interface & Visualization",
+        "content": "[PLACEHOLDER] Walk through the relationship graph, profile view, filtering, and key interactions. Replace the sample image with screenshots once the app is ready.",
+        "image": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1500&q=85"
+      },
+      {
+        "title": "Development & Next Steps",
+        "content": "[PLACEHOLDER] Summarize the technical implementation, current progress, testing feedback, limitations, and the next features you plan to build."
+      }
+    ]
+  }
+]
+}

@@ -1,0 +1,123 @@
+const grid = document.querySelector("#project-grid");
+const filters = document.querySelector("#filters");
+document.querySelector("#year").textContent = new Date().getFullYear();
+
+let projects = [];
+
+function formatHeroName(name) {
+  const parts = name.trim().split(/\s+/);
+  if (parts.length < 2) return name;
+  const lastName = parts.pop();
+  return `${parts.join(" ")}<br><em>${lastName}</em>`;
+}
+
+function renderSite(site) {
+  document.title = `Portfolio — ${site.name}`;
+  document.querySelector("#site-name").textContent = site.name;
+  document.querySelector("#hero-name").innerHTML = formatHeroName(site.name);
+  document.querySelector("#hero-headline").innerHTML = site.headline;
+  document.querySelector("#availability").textContent = site.availability;
+  document.querySelector("#portrait-image").src = site.portrait;
+  document.querySelector("#portrait-image").alt = `Portrait of ${site.name}`;
+  document.querySelector("#portrait-caption").textContent = site.portraitCaption;
+  document.querySelector("#hero-intro").textContent = site.intro;
+  document.querySelector("#profile-title").innerHTML = site.profileTitle;
+  document.querySelector("#profile-bio").textContent = site.profileBio;
+  document.querySelector("#profile-facts").innerHTML = site.facts.map(fact => `
+    <div><dt>${fact.label}</dt><dd>${fact.value}</dd></div>
+  `).join("");
+  document.querySelector("#skill-list").innerHTML = site.skills.map((skill, index) => `
+    <li><span>${String(index + 1).padStart(2, "0")}</span>${skill}</li>
+  `).join("");
+  document.querySelector("#experience-list").innerHTML = site.experiences.map(item => `
+    <div class="experience-row">
+      <span>${item.period}</span>
+      <h3>${item.role}</h3>
+      <p>${item.organization}</p>
+    </div>
+  `).join("");
+  document.querySelector("#contact-heading").innerHTML = site.contactHeading;
+
+  const contactLinks = [
+    site.email && { label: "Email", url: `mailto:${site.email}` },
+    site.linkedin && { label: "LinkedIn", url: site.linkedin },
+    site.github && { label: "GitHub", url: site.github },
+    site.resume && { label: "Résumé", url: site.resume }
+  ].filter(Boolean);
+  document.querySelector("#contact-links").innerHTML = contactLinks.map(link => `
+    <a href="${link.url}"${link.url.startsWith("http") ? ' target="_blank" rel="noopener"' : ""}>${link.label} ↗</a>
+  `).join("");
+  document.querySelector("#nav-email").href = `mailto:${site.email}`;
+  document.querySelector("#footer-name").textContent = site.name.toUpperCase();
+  document.querySelector("#footer-location").textContent = site.footerLocation;
+}
+
+function renderProjectIndex() {
+  document.querySelector("#project-index-list").innerHTML = projects.map((project, index) => `
+    <li><a href="project.html?id=${encodeURIComponent(project.id)}">
+      <span>${String(index + 1).padStart(2, "0")}</span>
+      <strong>${project.title}</strong>
+      <em>${project.category}</em>
+      <b>↗</b>
+    </a></li>
+  `).join("");
+}
+
+function renderProjects(category = "All") {
+  const visible = category === "All" ? projects : projects.filter(p => p.category === category);
+  if (!visible.length) {
+    grid.innerHTML = '<p class="empty">No projects in this category yet.</p>';
+    return;
+  }
+  grid.innerHTML = visible.map((project, index) => `
+    <a class="project-card" href="project.html?id=${encodeURIComponent(project.id)}">
+      <div class="project-cover">
+        <img src="${project.cover}" alt="${project.title}" loading="lazy">
+        <span class="project-number">${String(index + 1).padStart(2, "0")}</span>
+      </div>
+      <div class="project-meta">
+        <div>
+          <h3>${project.title}</h3>
+          <p>${project.category} · ${project.year}</p>
+        </div>
+        <span class="project-arrow">↗</span>
+      </div>
+    </a>
+  `).join("");
+}
+
+function renderFilters() {
+  const categories = ["All", ...new Set(projects.map(p => p.category))];
+  filters.innerHTML = categories.map((category, index) => `
+    <button class="filter-btn ${index === 0 ? "active" : ""}" type="button" data-category="${category}">${category}</button>
+  `).join("");
+  filters.addEventListener("click", event => {
+    const button = event.target.closest("button");
+    if (!button) return;
+    filters.querySelectorAll("button").forEach(item => item.classList.remove("active"));
+    button.classList.add("active");
+    renderProjects(button.dataset.category);
+  });
+}
+
+Promise.all([
+  fetch("data/site.json").then(response => {
+    if (!response.ok) throw new Error("Could not load site content");
+    return response.json();
+  }),
+  fetch("data/projects.json").then(response => {
+    if (!response.ok) throw new Error("Could not load project data");
+    return response.json();
+  })
+])
+  .then(([site, projectData]) => {
+    projects = Array.isArray(projectData) ? projectData : projectData.projects;
+    renderSite(site);
+    renderProjectIndex();
+    renderFilters();
+    renderProjects();
+  })
+  .catch(error => {
+    console.error(error);
+    grid.innerHTML = '<p class="empty">Portfolio content could not be loaded. Please try again later.</p>';
+  });
