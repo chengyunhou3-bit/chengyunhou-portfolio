@@ -23,17 +23,17 @@ function renderSite(site) {
   document.querySelector("#hero-intro").textContent = site.intro;
   document.querySelector("#profile-title").innerHTML = site.profileTitle;
   document.querySelector("#profile-bio").textContent = site.profileBio;
-  document.querySelector("#profile-facts").innerHTML = site.facts.map(fact => `
-    <div><dt>${fact.label}</dt><dd>${fact.value}</dd></div>
+  document.querySelector("#profile-facts").innerHTML = site.facts.map((fact, index) => `
+    <div><dt data-edit-path="site.facts.${index}.label">${fact.label}</dt><dd data-edit-path="site.facts.${index}.value">${fact.value}</dd></div>
   `).join("");
   document.querySelector("#skill-list").innerHTML = site.skills.map((skill, index) => `
-    <li><span>${String(index + 1).padStart(2, "0")}</span>${skill}</li>
+    <li><span>${String(index + 1).padStart(2, "0")}</span><span data-edit-path="site.skills.${index}">${skill}</span></li>
   `).join("");
-  document.querySelector("#experience-list").innerHTML = site.experiences.map(item => `
+  document.querySelector("#experience-list").innerHTML = site.experiences.map((item, index) => `
     <div class="experience-row">
-      <span>${item.period}</span>
-      <h3>${item.role}</h3>
-      <p>${item.organization}</p>
+      <span data-edit-path="site.experiences.${index}.period">${item.period}</span>
+      <h3 data-edit-path="site.experiences.${index}.role">${item.role}</h3>
+      <p data-edit-path="site.experiences.${index}.organization">${item.organization}</p>
     </div>
   `).join("");
   document.querySelector("#contact-heading").innerHTML = site.contactHeading;
@@ -50,14 +50,25 @@ function renderSite(site) {
   document.querySelector("#nav-email").href = `mailto:${site.email}`;
   document.querySelector("#footer-name").textContent = site.name.toUpperCase();
   document.querySelector("#footer-location").textContent = site.footerLocation;
+
+  const textBindings = {
+    "site-name": "site.name", "hero-headline": "site.headline",
+    "availability": "site.availability", "portrait-image": "site.portrait",
+    "portrait-caption": "site.portraitCaption", "hero-intro": "site.intro",
+    "profile-title": "site.profileTitle", "profile-bio": "site.profileBio",
+    "contact-heading": "site.contactHeading",
+    "footer-location": "site.footerLocation"
+  };
+  Object.entries(textBindings).forEach(([id, path]) => { document.querySelector(`#${id}`).dataset.editPath = path; });
+  ["hero-headline", "profile-title", "contact-heading"].forEach(id => { document.querySelector(`#${id}`).dataset.editHtml = "true"; });
 }
 
 function renderProjectIndex() {
   document.querySelector("#project-index-list").innerHTML = projects.map((project, index) => `
     <li><a href="project.html?id=${encodeURIComponent(project.id)}">
       <span>${String(index + 1).padStart(2, "0")}</span>
-      <strong>${project.title}</strong>
-      <em>${project.category}</em>
+      <strong data-edit-path="projects.${index}.title">${project.title}</strong>
+      <em data-edit-path="projects.${index}.category">${project.category}</em>
       <b>↗</b>
     </a></li>
   `).join("");
@@ -69,21 +80,23 @@ function renderProjects(category = "All") {
     grid.innerHTML = '<p class="empty">No projects in this category yet.</p>';
     return;
   }
-  grid.innerHTML = visible.map((project, index) => `
+  grid.innerHTML = visible.map((project, index) => {
+    const projectIndex = projects.indexOf(project);
+    return `
     <a class="project-card" href="project.html?id=${encodeURIComponent(project.id)}">
       <div class="project-cover">
-        <img src="${project.cover}" alt="${project.title}" loading="lazy">
+        <img src="${project.cover}" alt="${project.title}" loading="lazy" data-edit-path="projects.${projectIndex}.cover">
         <span class="project-number">${String(index + 1).padStart(2, "0")}</span>
       </div>
       <div class="project-meta">
         <div>
-          <h3>${project.title}</h3>
-          <p>${project.category} · ${project.year}</p>
+          <h3 data-edit-path="projects.${projectIndex}.title">${project.title}</h3>
+          <p><span data-edit-path="projects.${projectIndex}.category">${project.category}</span> · <span data-edit-path="projects.${projectIndex}.year">${project.year}</span></p>
         </div>
         <span class="project-arrow">↗</span>
       </div>
-    </a>
-  `).join("");
+    </a>`;
+  }).join("");
 }
 
 function renderFilters() {
@@ -100,7 +113,11 @@ function renderFilters() {
   });
 }
 
-Promise.all([
+const visualDraft = new URLSearchParams(location.search).has("visual-edit")
+  ? JSON.parse(sessionStorage.getItem("portfolioEditorDraft") || "null")
+  : null;
+
+(visualDraft ? Promise.resolve([visualDraft.site, { projects: visualDraft.projects }]) : Promise.all([
   fetch("data/site.json").then(response => {
     if (!response.ok) throw new Error("Could not load site content");
     return response.json();
@@ -109,7 +126,7 @@ Promise.all([
     if (!response.ok) throw new Error("Could not load project data");
     return response.json();
   })
-])
+]))
   .then(([site, projectData]) => {
     projects = Array.isArray(projectData) ? projectData : projectData.projects;
     renderSite(site);
@@ -121,3 +138,4 @@ Promise.all([
     console.error(error);
     grid.innerHTML = '<p class="empty">Portfolio content could not be loaded. Please try again later.</p>';
   });
+document.documentElement.dataset.appLoaded = "true";

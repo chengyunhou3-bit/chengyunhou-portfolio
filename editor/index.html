@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Visual Editor — Cheng-Yun Hou</title>
+  <link rel="stylesheet" href="editor.css">
+  <script src="editor.js" defer></script>
+</head>
+<body>
+  <div class="login" id="login-panel">
+    <form id="login-form">
+      <p class="kicker">PORTFOLIO VISUAL EDITOR</p>
+      <h1>Edit the site<br>where you see it.</h1>
+      <p>Paste the repository-scoped GitHub token you created. It stays in this browser tab and is never added to the website.</p>
+      <label for="token">GitHub Personal Access Token</label>
+      <input id="token" type="password" autocomplete="off" placeholder="github_pat_…" required>
+      <button type="submit">Open editor</button>
+      <span class="form-status" id="login-status"></span>
+    </form>
+  </div>
+
+  <div class="editor" id="editor-shell" hidden>
+    <header class="toolbar">
+      <div class="brand"><b>CYH</b><span>Visual Editor</span></div>
+      <div class="toolbar-group">
+        <button type="button" id="home-btn">Home</button>
+        <button type="button" id="add-project-btn">+ Project</button>
+        <button type="button" id="add-section-btn">+ Section</button>
+        <button type="button" id="add-media-btn">+ Media</button>
+        <button type="button" id="add-skill-btn">+ Skill</button>
+        <button type="button" id="add-experience-btn">+ Experience</button>
+        <button type="button" id="move-up-btn">Move ↑</button>
+        <button type="button" id="move-down-btn">Move ↓</button>
+        <button class="danger" type="button" id="delete-btn">Delete</button>
+      </div>
+      <div class="toolbar-group right">
+        <button type="button" id="viewport-btn">Mobile</button>
+        <button type="button" id="discard-btn">Discard</button>
+        <span class="change-count" id="change-count">No changes</span>
+        <button class="primary" type="button" id="save-btn">Save to GitHub</button>
+      </div>
+    </header>
+
+    <main class="workspace">
+      <aside class="help-panel">
+        <p class="kicker">HOW TO EDIT</p>
+        <h2 id="selection-title">Click anything</h2>
+        <p id="selection-help">Click highlighted text inside the preview and type. Click an image to replace it.</p>
+        <div class="selection-actions" id="selection-actions" hidden>
+          <button type="button" id="replace-url-btn">Use URL</button>
+          <button type="button" id="upload-btn">Upload file</button>
+          <input id="file-input" type="file" hidden>
+        </div>
+        <div class="selection-actions" id="list-actions" hidden>
+          <button type="button" id="item-up-btn">Move selected ↑</button>
+          <button type="button" id="item-down-btn">Move selected ↓</button>
+          <button class="danger" type="button" id="item-delete-btn">Delete selected</button>
+        </div>
+        <div class="changes" id="changes-list"></div>
+        <hr>
+        <button class="sign-out" type="button" id="sign-out-btn">Forget token &amp; sign out</button>
+      </aside>
+      <div class="preview-wrap" id="preview-wrap">
+        <iframe id="preview" title="Editable portfolio preview"></iframe>
+      </div>
+    </main>
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  </div>
+</body>
+</html>

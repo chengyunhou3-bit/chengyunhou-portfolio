@@ -53,3 +53,9 @@ After the repository exists and the site is deployed:
 5. Edit content and save; the CMS commits the changed JSON and uploaded media to GitHub.
 
 Profile, experience, skills, and contact information are stored in `data/site.json`. Projects and case-study sections are stored in `data/projects.json`.
+
+## Visual editor
+
+The Wix-style constrained visual editor is available at `/editor/`. It keeps the responsive template fixed while allowing direct text editing, image replacement, media upload, project creation and ordering, section management, and desktop/mobile preview.
+
+The editor stores the GitHub token and unsaved draft in `sessionStorage`, which is cleared when the tab is closed or the editor signs out. Saving commits `data/site.json` and `data/projects.json` to `main`; GitHub Pages then rebuilds the public site.
